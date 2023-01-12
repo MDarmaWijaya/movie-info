@@ -29,6 +29,7 @@ export const Home = () => {
                     </div>
                     <p>Rate: {movie.vote_average}</p>
                     <p>Popularity: {movie.popularity}</p>
+                    <p>Popularity: {movie.release_date}</p>
                   </div>
                 </div>
               </div>
