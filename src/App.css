@@ -2,37 +2,115 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.movie-search {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  padding: 14px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.movie-card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px black;
+}
+
+.movie-card .movie-body {
+  position: relative;
+  z-index: 1;
+}
+/* style blur */
+.movie-card .movie-body::before {
+  content: '';
+  position: absolute;
+  bottom: -280px;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(0deg, whitesmoke 50%, transparent);
+  transition: 0.5s;
+  z-index: 1;
+}
+
+.movie-card:hover .movie-body::before {
+  bottom: 0px;
+}
+
+.movie-card .movie-body img {
+  transition: 0.5s;
+}
+
+.movie-card:hover .movie-body img {
+  transform: translateY(-50px);
+  filter: blur(5px);
+}
+
+.movie-card .details {
+  font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  width: 100%;
+  bottom: -500px;
+  z-index: 2;
+  transition: 0.5s;
+}
+
+.movie-card:hover .details {
+  bottom: 0px;
+}
+
+.movie-card .details .info {
+  font-size: 13px;
+  color: black;
+}
+.sinopsis {
+  padding: 10px;
+}
+
+.movie-title {
+  margin-top: 10px;
+}
+/* end style blur */
+
+/* style name */
+.navigate {
+  background-color: #252839;
+}
+
+.myname {
+  position: relative;
+  color: #252839;
+  font-size: 30px;
+  -webkit-text-stroke: 0.1vw #383d52;
+  text-transform: uppercase;
+}
+
+.myname::before {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  color: #01f387;
+  -webkit-text-stroke: 0vw #383d52;
+  overflow: hidden;
+  white-space: nowrap;
+  animation: animate 6s linear infinite;
+}
+
+@keyframes animate {
+  0%,
+  10%,
+  100% {
+    width: 0;
+  }
+
+  70%,
+  90% {
+    width: 100%;
   }
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
+/* end style name */
